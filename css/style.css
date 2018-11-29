@@ -1,8 +1,91 @@
 .form {
     margin: auto;
     width: 400px;
-    paddind: 20px 30px;
+    padding: 20px 30px;
     background: #fff;
     border: 1px solid #dfdfdf;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective-origin: 50px center;
+    -webkit-perspective-origin: 50px center;
+    perspective: 2000px;
+    -webkit-perspective: 2000px;
+    -webkit-transition: -webkit-transform 1s ease;
+    transition: -webkit-transform 1s ease;
+    transition: transform 1s ease;
+    transition: transform 1s ease, -webkit-transform 1s ease;
+}
 
+.form::before,
+.form::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.form::before {
+    height: 100%;
+    top: 0;
+    -webkit-transform: translateZ(-100px);
+    transform: translateZ(-100px);
+    background: #333;
+    opacity: 0.3;
+}
+
+.form::after {
+    content: "Success";
+    transform: translateY(-50%) translateZ(-101px);
+    -webkit-transform: translateY(-50%) translateZ(-101px);
+    top: 50%;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.field {
+    position: relative;
+    background: #cfcfcf;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.field,
+.field {
+    margin-top: 10px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: calc(50%-12px);
+    left: 12px;
+    transform: translateZ(50px);
+    -webkit-transform: translateZ(50px);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.icon::before,
+.icon::after {
+    content: "";
+    display: block;
+    widows: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icon::after {
+    transform: translateZ(-23px);
+    -webkit-transform: translateZ(-23px);
+    opacity: 0.5;
+}
+
+.input {
+    border: 1px solid #dfdfdf;
+    background: #fff;
+    height: 48px;
 }
